@@ -1,0 +1,100 @@
+/* Reset básico para remover margens e preenchimentos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0; /* Remove margens padrão do body */
+}
+
+header {
+    background: #333; /* Cor de fundo para o header */
+    color: #fff;
+    position: relative; /* Removido o posicionamento absoluto */
+    width: 100%; /* Faz o header ocupar toda a largura da página */
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #585858, #000000); /* Gradiente de fundo */
+    opacity: 0.3;
+    z-index: -1;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+main {
+    padding: 20px;
+    margin-top: 60px; /* Deixa espaço suficiente para o header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-caption {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column; /* Alinha os itens da galeria verticalmente */
+    gap: 15px;
+    width: 100%; /* Faz a galeria ocupar a largura total do container */
+    max-width: 800px; /* Largura máxima para manter um layout agradável */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 300px; /* Altura fixa para os itens da galeria */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinha a imagem e a legenda verticalmente */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover; /* Mantém a proporção da imagem e cobre o container */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.caption {
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
